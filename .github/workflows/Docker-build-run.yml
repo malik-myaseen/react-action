@@ -1,0 +1,45 @@
+name: Exploring Variable and Scerets
+
+on:
+     push
+
+jobs:
+    #environmet variable at step level
+    docker:
+      runs-on: ubuntu-latest
+      steps:
+        - name: docker-build
+          env:
+            CONTAINER_REGISTRY: docker.io
+            DOCKER_USERNAME: malikyasin
+            IMAGE_NAME: react-app-image
+          run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+        
+        - name: Docker login
+          env:
+            DOCKER_PASSWORD: realdocker1
+            DOCKER_USERNAME: malikyasin
+          run: echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+          
+        - name: Docker Publish  
+          env:
+            CONTAINER_REGISTRY: docker.io
+            DOCKER_USERNAME: malikyasin
+            IMAGE_NAME: react-app-image
+          run: echo docker push -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+
+    deploy:
+        needs: docker
+        runs-on: ubuntu-latest
+        steps:
+        - name: Docker Run
+          env:
+            CONTAINER_REGISTRY: docker.io
+            DOCKER_USERNAME: malikyasin
+            IMAGE_NAME: react-app-image
+          run: echo docker run -d -p $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+
+
+          
+          
+
