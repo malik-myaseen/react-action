@@ -12,7 +12,7 @@ jobs:
             - name: Chectout Repo files
               run: ls -ltra
               
-            - name: Excute Shell Script
+            - name: Excute Shell 
               run: |
                chmod +x ascii-script.sh
                ./ascii-script.sh
