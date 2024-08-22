@@ -21,5 +21,8 @@ jobs:
             - name: Chectout Repo files
               run: ls -ltra
 
+            - name: read file
+              run: cat 
+
             
             
