@@ -12,6 +12,9 @@ jobs:
             - name: Install Cowsay Program
               run: sudo apt-get install cowsay -y
 
+            - name: Execte Cowsay CMD
+              run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR" >> dragon.txt
+
             - name: Test the file exists
               run: grep -i "dragon" dragon.txt
 
@@ -20,9 +23,5 @@ jobs:
 
             - name: Chectout Repo files
               run: ls -ltra
-
-            - name: read file
-              run: cat 
-
             
             
