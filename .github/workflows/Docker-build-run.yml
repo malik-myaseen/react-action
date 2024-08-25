@@ -123,10 +123,10 @@
             name: Exploring Variable and Secrets
 
             on:
-              workflow_dispatch: 
+              # workflow_dispatch: 
               # schedule:
               #   - cron: "*/1 * * * *"
-              # push
+              push
             
             jobs:
               docker:
