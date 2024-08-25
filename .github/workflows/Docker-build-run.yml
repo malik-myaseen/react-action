@@ -114,7 +114,7 @@
         needs: docker
         concurrency: 
           group: production_deploement
-          cancel-in-progress: false
+          cancel-in-progress: true
 
         runs-on: ubuntu-latest
         steps:
