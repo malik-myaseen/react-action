@@ -115,8 +115,9 @@
         runs-on: ubuntu-latest
         steps:
           - name: Docker Run
-            run: echo docker run -d -p 80:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
-    
+            run: |
+             echo docker run -d -p 80:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+             sleep 600s
 
 
 # environmet variable at REPO level 
