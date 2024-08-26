@@ -1,0 +1,28 @@
+name: Workflow filter
+
+on: 
+    workflow_dispatch:
+    push:
+        # branches-ignore:  #we can use branches-ignore or branches single at a time
+        #     - feature/*   #it will ignore feeacture/event or feature/texting etc
+        #     - test/**     #it will ignore feeacture/event/folder or feature/texting/folder etc
+
+        branches:
+            - main
+            - '!feature/*'
+
+    pull_request: 
+        types: 
+            - opened
+            - closed
+        paths-ignore:
+            - README.md
+        branches:
+            - main
+jobs: 
+ hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo this workflow/job/step is executed for the event type - ${{ github.event_name }} 
+
+
